@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RupeeLens Faculty Presentation and Viva Guide</title>
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --panel: #ffffff;
+            --panel-soft: #f9fbff;
+            --text: #1a2433;
+            --muted: #617086;
+            --line: #d8e1ec;
+            --brand: #0f4c81;
+            --brand-2: #2a7abf;
+            --accent: #0d9488;
+            --accent-soft: #dff7f4;
+            --danger: #b42318;
+            --danger-soft: #fee4e2;
+            --warning: #b54708;
+            --warning-soft: #fff2cc;
+            --success: #067647;
+            --success-soft: #dcfae6;
+            --shadow: 0 18px 40px rgba(20, 41, 61, 0.08);
+            --radius: 20px;
+            --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            --sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--sans);
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(42, 122, 191, 0.12), transparent 26%),
+                radial-gradient(circle at top right, rgba(13, 148, 136, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef5fb 0%, #f7f9fc 42%, #f4f7fb 100%);
+            line-height: 1.6;
+        }
+
+        .page {
+            width: min(1400px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 24px 0 60px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 76, 129, 0.96), rgba(42, 122, 191, 0.93));
+            color: #fff;
+            border-radius: 28px;
+            padding: 34px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -80px -80px auto;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 700;
+            opacity: 0.92;
+            margin-bottom: 14px;
+        }
+
+        h1, h2, h3, h4 {
+            margin: 0 0 12px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            max-width: 860px;
+        }
+
+        h2 {
+            font-size: 1.55rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        .hero p {
+            max-width: 920px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .hero-grid,
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+            display: grid;
+            gap: 18px;
+        }
+
+        .hero-grid {
+            grid-template-columns: 1.7fr 1fr;
+            margin-top: 24px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .hero-stat,
+        .card,
+        .mini-card {
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-stat {
+            padding: 18px 20px;
+            color: var(--text);
+        }
+
+        .hero-stat strong {
+            display: block;
+            color: var(--brand);
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        nav {
+            position: sticky;
+            top: 12px;
+            z-index: 5;
+            margin: 18px 0 22px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(216, 225, 236, 0.85);
+            border-radius: 18px;
+            padding: 10px;
+            box-shadow: 0 12px 30px rgba(28, 46, 67, 0.08);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--brand);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            background: #e8f1fb;
+        }
+
+        section {
+            margin-top: 24px;
+        }
+
+        .section-title {
+            margin-bottom: 14px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 900px;
+        }
+
+        .card {
+            padding: 22px;
+            margin-bottom: 18px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.98));
+            border: 1px solid var(--line);
+        }
+
+        .mini-card {
+            padding: 18px;
+            border: 1px solid var(--line);
+            background: var(--panel-soft);
+        }
+
+        .label-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 12px 0 2px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        .ok {
+            background: var(--success-soft);
+            color: var(--success);
+        }
+
+        .no {
+            background: var(--danger-soft);
+            color: var(--danger);
+        }
+
+        .warn {
+            background: var(--warning-soft);
+            color: var(--warning);
+        }
+
+        .note {
+            background: #edf5ff;
+            color: var(--brand);
+        }
+
+        .list {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .list li {
+            margin-bottom: 8px;
+        }
+
+        .architecture {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 12px;
+            align-items: center;
+        }
+
+        .arch-node {
+            background: linear-gradient(180deg, #fff, #f5fafe);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px 14px;
+            text-align: center;
+            min-height: 118px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .arch-node strong {
+            color: var(--brand);
+            display: block;
+        }
+
+        .arch-arrow {
+            text-align: center;
+            color: var(--brand-2);
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+
+        .diagram-row {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 18px;
+        }
+
+        .entity-map {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .entity {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .entity header {
+            background: linear-gradient(135deg, #e9f4ff, #f3fbff);
+            padding: 12px 14px;
+            font-weight: 800;
+            color: var(--brand);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .entity ul {
+            list-style: none;
+            margin: 0;
+            padding: 12px 14px;
+        }
+
+        .entity li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #e8edf4;
+            font-size: 0.95rem;
+        }
+
+        .entity li:last-child {
+            border-bottom: 0;
+        }
+
+        .relation-board {
+            border: 1px dashed #9eb8d1;
+            border-radius: 18px;
+            padding: 18px;
+            background: linear-gradient(180deg, #fbfdff, #f4f9ff);
+        }
+
+        .relation-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 12px 0;
+            padding: 12px 14px;
+            border: 1px solid #dce8f4;
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        .code-block {
+            background: #0d1623;
+            color: #dfe8f3;
+            border-radius: 18px;
+            padding: 16px;
+            overflow-x: auto;
+            font-family: var(--mono);
+            font-size: 0.86rem;
+            line-height: 1.6;
+            border: 1px solid #243447;
+            margin: 12px 0 10px;
+            white-space: pre-wrap;
+        }
+
+        .code-tag {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: var(--brand);
+            font-size: 0.8rem;
+            font-weight: 800;
+            margin: 0 8px 10px 0;
+        }
+
+        .snippet {
+            margin-bottom: 18px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e7edf5;
+        }
+
+        .snippet:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .split-band {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 18px;
+        }
+
+        .flow-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .flow-step {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 14px;
+            align-items: start;
+            padding: 14px;
+            border-radius: 16px;
+            background: #f8fbff;
+            border: 1px solid #dbe7f3;
+        }
+
+        .step-no {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            color: #fff;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .member-card {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: linear-gradient(180deg, #fff, #f8fbff);
+            padding: 18px;
+        }
+
+        .member-card h3 {
+            margin-bottom: 10px;
+            color: var(--brand);
+        }
+
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .member-block {
+            background: #fff;
+            border: 1px solid #e4ebf3;
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-top: 10px;
+        }
+
+        .member-block strong {
+            display: block;
+            color: #203047;
+            margin-bottom: 6px;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 12px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 16px;
+            border: 1px solid #dde7f2;
+            border-radius: 16px;
+            padding: 14px;
+            background: #fff;
+        }
+
+        .timeline-item .phase {
+            font-weight: 800;
+            color: var(--brand);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e8edf4;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #eef5fd;
+            color: var(--brand);
+            font-size: 0.92rem;
+        }
+
+        tr:nth-child(even) td {
+            background: #fbfdff;
+        }
+
+        code {
+            font-family: var(--mono);
+            background: #eef4fa;
+            color: #19324d;
+            padding: 2px 5px;
+            border-radius: 6px;
+            font-size: 0.93em;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--muted);
+            padding: 20px 0 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1180px) {
+            .hero-grid,
+            .diagram-row,
+            .split-band,
+            .member-grid,
+            .grid-4,
+            .grid-3,
+            .grid-2,
+            .entity-map {
+                grid-template-columns: 1fr;
+            }
+
+            .architecture {
+                grid-template-columns: 1fr;
+            }
+
+            .arch-arrow {
+                transform: rotate(90deg);
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div class="eyebrow">Faculty Presentation and Viva Document</div>
+            <h1>RupeeLens: Complete Project Explanation from Basics to Advanced Implementation</h1>
+            <p>RupeeLens is a Java web-based expense tracking system built with Servlet, JSP, JDBC, MySQL, Bootstrap, and JavaScript. It supports authentication, category management, income and expense tracking, reporting, receipt upload, and an OCR-powered feature that extracts data from receipts and pre-fills the expense form for faster entry.</p>
+            <div class="label-row">
+                <span class="pill ok">Implemented: Servlet + JSP + JDBC + MySQL + MVC</span>
+                <span class="pill ok">Implemented: Session, Cookies, CRUD, Reports, File Upload, OCR</span>
+                <span class="pill no">Not Implemented: JSF, Hibernate</span>
+                <span class="pill warn">Future Scope: password hashing, ORM, advanced analytics</span>
+            </div>
+
+            <div class="hero-grid">
+                <div class="hero-stat">
+                    <strong>Problem Statement</strong>
+                    Students and working users often track daily income and expenses manually, which leads to missing entries, poor categorization, weak reporting, and extra time spent typing receipt details. RupeeLens solves this by centralizing financial entries in one web system and reducing manual work through receipt OCR.
+                </div>
+                <div class="grid-2">
+                    <div class="hero-stat">
+                        <strong>Target Users</strong>
+                        Personal finance users, students, and anyone who wants a simple web-based tracker.
+                    </div>
+                    <div class="hero-stat">
+                        <strong>Server Style</strong>
+                        Request-response Java web app on Tomcat using JSP views and Servlet controllers.
+                    </div>
+                    <div class="hero-stat">
+                        <strong>Database</strong>
+                        MySQL database named <code>RupeeLens</code> with user-specific records.
+                    </div>
+                    <div class="hero-stat">
+                        <strong>Special Feature</strong>
+                        OCR receipt extraction through <code>/expense-ocr</code> with user confirmation before save.
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#stack">Technology Stack</a></li>
+                <li><a href="#architecture">MVC Architecture</a></li>
+                <li><a href="#frontend">Frontend</a></li>
+                <li><a href="#backend">Backend</a></li>
+                <li><a href="#database">Database</a></li>
+                <li><a href="#crud">CRUD</a></li>
+                <li><a href="#ocr">OCR Feature</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#team">Team Flow</a></li>
+                <li><a href="#snippets">Code Snippets</a></li>
+                <li><a href="#summary">Final Summary</a></li>
+            </ul>
+        </nav>
+
+        <section id="overview">
+            <div class="section-title">
+                <h2>1. Project Overview</h2>
+                <p>This section explains what the project is, why it was built, what it achieves, and why it is relevant in the real world.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Project Name</h3>
+                    <p><strong>RupeeLens</strong> is an expense and income tracking system that helps users manage money records, categorize spending, upload receipts, and view reports through a web interface.</p>
+                    <h3>Core Objective</h3>
+                    <p>The main objective is to provide a structured financial tracking system where each logged-in user can create, manage, and analyze income and expense entries securely.</p>
+                    <h3>Updated Objectives</h3>
+                    <ul class="list">
+                        <li>Allow user registration, login, logout, and session-controlled access.</li>
+                        <li>Support separate modules for income, expense, and category management.</li>
+                        <li>Generate dashboard analytics and monthly report views.</li>
+                        <li>Allow receipt file upload for expense entries.</li>
+                        <li>Reduce manual entry effort using OCR-based receipt data extraction.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Real-World Relevance</h3>
+                    <ul class="list">
+                        <li>Expense tracking is a real need for students, freelancers, salaried users, and households.</li>
+                        <li>Digital receipts are common, but manual form entry is repetitive and error-prone.</li>
+                        <li>Reports and charts help users understand where their money is going.</li>
+                        <li>OCR improves usability by turning receipt images into structured suggestions.</li>
+                    </ul>
+                    <div class="label-row">
+                        <span class="pill note">Domain: Personal Finance Management</span>
+                        <span class="pill note">Pattern: MVC-Oriented Java Web Application</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stack">
+            <div class="section-title">
+                <h2>2. Technology Stack</h2>
+                <p>The project uses a standard Java web application stack. Each technology has a specific purpose in the system.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="mini-card">
+                    <h3>Servlet</h3>
+                    <p>Servlets act as controllers. They receive HTTP requests, read parameters, validate user session, call DAOs, and decide whether to forward or redirect.</p>
+                    <p><strong>Why used:</strong> Servlets provide strong control over request handling and are ideal for building MVC-style Java web applications.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>JSP</h3>
+                    <p>JSP pages render forms, tables, dashboard views, and user-facing pages. Data from servlets or DAOs is displayed using JSP tags and scriptlets.</p>
+                    <p><strong>Why used:</strong> JSP simplifies server-side page rendering and integrates easily with Servlet-based applications.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>JDBC</h3>
+                    <p>JDBC connects Java code to MySQL. DAOs use <code>PreparedStatement</code> and <code>ResultSet</code> to run SQL queries and map results to model objects.</p>
+                    <p><strong>Why used:</strong> JDBC gives full control over SQL and is appropriate for educational projects focused on database fundamentals.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>MySQL</h3>
+                    <p>MySQL stores persistent data such as users, categories, income records, and expense records with foreign-key-based relationships.</p>
+                    <p><strong>Why used:</strong> It is stable, relational, easy to integrate with JDBC, and supports reporting queries efficiently.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Bootstrap and JavaScript</h3>
+                    <p>Bootstrap improves layout, form design, and responsiveness. JavaScript handles receipt preview, search, chart rendering, OCR fetch calls, and client-side events.</p>
+                    <p><strong>Why used:</strong> It improves the user experience without changing backend architecture.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Tomcat and Utility Classes</h3>
+                    <p>The application runs on Apache Tomcat. Utility classes such as <code>DBConnection</code> and <code>AppContextListener</code> manage connectivity and cleanup.</p>
+                    <p><strong>Why used:</strong> They support deployment, JDBC lifecycle management, and runtime stability.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture">
+            <div class="section-title">
+                <h2>3. System Architecture (MVC)</h2>
+                <p>RupeeLens follows a practical MVC-oriented structure. JSP pages are the view layer, Servlets are the controller layer, model classes hold data, and DAO classes connect controllers to the database.</p>
+            </div>
+
+            <div class="card">
+                <div class="architecture">
+                    <div class="arch-node">
+                        <strong>User</strong>
+                        Browser interaction
+                        Forms, clicks, uploads
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-node">
+                        <strong>JSP View</strong>
+                        <code>login.jsp</code>, <code>addExpense.jsp</code>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-node">
+                        <strong>Servlet Controller</strong>
+                        <code>LoginServlet</code>, <code>ExpenseServlet</code>
+                    </div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-node">
+                        <strong>DAO + MySQL</strong>
+                        SQL execution and data retrieval
+                    </div>
+                </div>
+                <div class="label-row">
+                    <span class="pill note">Flow: User → JSP → Servlet → DAO → Database → Servlet/JSP Response</span>
+                </div>
+            </div>
+
+            <div class="diagram-row">
+                <div class="card">
+                    <h3>MVC Breakdown</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Layer</th>
+                                <th>Project Files</th>
+                                <th>Responsibility</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Model</td>
+                                <td><code>model.User</code>, <code>Income</code>, <code>Expense</code>, <code>Category</code></td>
+                                <td>Hold data as Java objects and move it between DAO, Servlet, and JSP.</td>
+                            </tr>
+                            <tr>
+                                <td>View</td>
+                                <td><code>login.jsp</code>, <code>dashboard.jsp</code>, <code>viewExpense.jsp</code></td>
+                                <td>Display forms, tables, dashboard charts, and messages.</td>
+                            </tr>
+                            <tr>
+                                <td>Controller</td>
+                                <td><code>LoginServlet</code>, <code>IncomeServlet</code>, <code>ExpenseServlet</code>, <code>ExpenseOCRServlet</code></td>
+                                <td>Handle request routing, validation, session checks, redirects, file upload, and OCR API interaction.</td>
+                            </tr>
+                            <tr>
+                                <td>DAO</td>
+                                <td><code>UserDAO</code>, <code>IncomeDAO</code>, <code>ExpenseDAO</code>, <code>CategoryDAO</code>, <code>DashboardDAO</code></td>
+                                <td>Execute SQL and return model objects or aggregated report data.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3>Request Example: Expense Save</h3>
+                    <div class="flow-stack">
+                        <div class="flow-step">
+                            <div class="step-no">1</div>
+                            <div><strong>User fills <code>addExpense.jsp</code></strong><br>Category, amount, date, description, and optional receipt file are entered.</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-no">2</div>
+                            <div><strong><code>ExpenseServlet</code> receives POST request</strong><br>Session is checked, hidden flags are read, file is stored if uploaded, and input is converted into an <code>Expense</code> object.</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-no">3</div>
+                            <div><strong><code>ExpenseDAO</code> runs SQL</strong><br>Data is inserted or updated in <code>expenses</code> table using prepared statements.</div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-no">4</div>
+                            <div><strong>Response returns to browser</strong><br>Application redirects to expense list using URL encoding for session-safe navigation.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="frontend">
+            <div class="section-title">
+                <h2>4. Frontend (Client-Side) Explanation</h2>
+                <p>The frontend is implemented using JSP, Bootstrap, CSS, and JavaScript. It focuses on simple form-based interaction, clean dashboard views, and responsive user experience.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>UI Structure</h3>
+                    <ul class="list">
+                        <li><code>login.jsp</code> and <code>register.jsp</code> manage authentication UI.</li>
+                        <li><code>dashboard.jsp</code> shows totals, charts, and recent transactions.</li>
+                        <li><code>addIncome.jsp</code>, <code>addExpense.jsp</code>, and <code>addCategory.jsp</code> provide entry forms.</li>
+                        <li><code>viewIncome.jsp</code>, <code>viewExpense.jsp</code>, and <code>viewCategory.jsp</code> display stored records.</li>
+                        <li><code>components/sidebar.jsp</code> and <code>components/navbar.jsp</code> provide reusable layout blocks.</li>
+                    </ul>
+                    <h3>Forms Covered</h3>
+                    <p>Login, registration, income form, expense form, category form, report search, and OCR extraction interaction are all visible in the interface.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Validation and Event Handling</h3>
+                    <ul class="list">
+                        <li>HTML validation uses input types like <code>email</code>, <code>date</code>, and numeric fields with <code>required</code>, <code>min</code>, and <code>step</code>.</li>
+                        <li>JavaScript handles chart rendering, table searching, receipt preview, OCR button clicks, async fetch requests, and final confirmation before expense save.</li>
+                        <li>Receipt preview uses <code>FileReader</code> so the user sees the selected image before OCR or save.</li>
+                        <li>Form submission is blocked if OCR was used but the user did not confirm extracted data.</li>
+                    </ul>
+                    <h3>Hidden Parameters</h3>
+                    <p>The expense form uses hidden fields such as <code>formAction</code>, <code>expenseId</code>, <code>existingReceipt</code>, <code>ocrUsed</code>, and <code>ocrConfirmed</code> to preserve edit mode and OCR state.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Small Frontend Code Snippets</h3>
+                <span class="code-tag">addExpense.jsp</span>
+                <div class="code-block">&lt;form id="expenseForm" action="${pageContext.request.contextPath}/expense"
+      method="post" enctype="multipart/form-data"&gt;
+    &lt;input type="hidden" name="formAction" value="create"&gt;
+    &lt;input type="hidden" name="ocrUsed" id="ocrUsed" value="false"&gt;
+    &lt;input type="hidden" name="ocrConfirmed" id="ocrConfirmed" value="false"&gt;
+    &lt;input class="form-control" type="file" id="receipt" name="receipt" accept="image/*,.pdf"&gt;
+&lt;/form&gt;</div>
+                <p>This form supports both normal expense entry and OCR-supported receipt upload. Hidden fields are important because they control backend behavior without showing extra UI elements.</p>
+
+                <span class="code-tag">dashboard.js</span>
+                <div class="code-block">receiptInput.addEventListener("change", function () {
+    const file = this.files && this.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        preview.src = e.target.result;
+        preview.style.display = "block";
+    };
+    reader.readAsDataURL(file);
+});</div>
+                <p>This event listener improves usability by showing the selected receipt image instantly in the browser before the file is uploaded to the server.</p>
+            </div>
+        </section>
+
+        <section id="backend">
+            <div class="section-title">
+                <h2>5. Backend (Server-Side) Explanation</h2>
+                <p>The backend is controlled by Servlets. They manage routing, business flow, session checks, cookies, database operations, file upload, OCR integration, and redirection.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Main Servlets and Their Roles</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Servlet</th>
+                                <th>URL</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>LoginServlet</code></td>
+                                <td><code>/login</code></td>
+                                <td>Authenticates user, creates session, stores cookies for remembered email and last login.</td>
+                            </tr>
+                            <tr>
+                                <td><code>RegisterServlet</code></td>
+                                <td><code>/register</code></td>
+                                <td>Registers new user after validating required fields and duplicate email.</td>
+                            </tr>
+                            <tr>
+                                <td><code>LogoutServlet</code></td>
+                                <td><code>/logout</code></td>
+                                <td>Invalidates session and can clear remembered email cookie.</td>
+                            </tr>
+                            <tr>
+                                <td><code>IncomeServlet</code></td>
+                                <td><code>/income</code></td>
+                                <td>Handles add, edit, list, and delete flow for income records.</td>
+                            </tr>
+                            <tr>
+                                <td><code>ExpenseServlet</code></td>
+                                <td><code>/expense</code></td>
+                                <td>Handles add, edit, list, delete, receipt upload, and OCR confirmation checks.</td>
+                            </tr>
+                            <tr>
+                                <td><code>AddCategoryServlet</code></td>
+                                <td><code>/category</code></td>
+                                <td>Manages user categories with create, update, delete, and list actions.</td>
+                            </tr>
+                            <tr>
+                                <td><code>ExpenseOCRServlet</code></td>
+                                <td><code>/expense-ocr</code></td>
+                                <td>Accepts uploaded receipt file, calls OCR provider, extracts values, and returns JSON.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3>Sessions, Cookies, Redirects, and Exceptions</h3>
+                    <ul class="list">
+                        <li><strong>Session management:</strong> user object is stored in session as <code>loggedUser</code>; timeout is configured for 30 minutes in code and <code>web.xml</code>.</li>
+                        <li><strong>Cookie handling:</strong> email is stored in cookie <code>rupeelens_remember_email</code>; last login time is stored in <code>rupeelens_last_login</code>; password is not stored in cookies.</li>
+                        <li><strong>Authentication and authorization:</strong> protected servlets call <code>getSession(false)</code> and reject unauthenticated access by redirecting to login.</li>
+                        <li><strong>URL rewriting and redirection:</strong> <code>encodeRedirectURL()</code> and <code>encodeURL()</code> are used to preserve session information when needed.</li>
+                        <li><strong>Exception handling:</strong> form operations are wrapped in <code>try-catch</code>; generic errors route to <code>error.jsp</code>, and missing pages route to <code>error404.jsp</code>.</li>
+                        <li><strong>File upload:</strong> <code>@MultipartConfig</code> is used in expense and OCR servlets for receipt upload handling.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Backend Flow Highlights</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="phase">Authentication</div>
+                        <div>The login servlet checks email and password through <code>UserDAO</code>. If successful, a session is created, session timeout is set, cookies are added, and the user is redirected to <code>dashboard.jsp</code>.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="phase">Expense Save</div>
+                        <div>The expense servlet reads form values, checks if OCR confirmation is required, saves uploaded receipt file to <code>System.getProperty("user.home") + "/RupeeLensUploads"</code>, creates an <code>Expense</code> object, and then calls <code>ExpenseDAO</code>.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="phase">OCR Request</div>
+                        <div>The OCR servlet reads the multipart file, checks the user session, calls Google Vision if configured or OCR.Space otherwise, optionally preprocesses the image for retry, extracts amount/date/category/merchant, and returns JSON to the browser.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="phase">Cleanup</div>
+                        <div><code>AppContextListener</code> deregisters JDBC drivers and shuts down MySQL cleanup threads when the web application is destroyed.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="database">
+            <div class="section-title">
+                <h2>6. Database Design</h2>
+                <p>The system uses a relational MySQL schema. The four main tables for daily functionality are <code>users</code>, <code>categories</code>, <code>income</code>, and <code>expenses</code>.</p>
+            </div>
+
+            <div class="card">
+                <div class="entity-map">
+                    <div class="entity">
+                        <header>Users</header>
+                        <ul>
+                            <li><code>user_id</code> (PK)</li>
+                            <li><code>name</code></li>
+                            <li><code>email</code></li>
+                            <li><code>password</code></li>
+                            <li><code>created_at</code></li>
+                        </ul>
+                    </div>
+                    <div class="entity">
+                        <header>Categories</header>
+                        <ul>
+                            <li><code>category_id</code> (PK)</li>
+                            <li><code>user_id</code> (FK, nullable for default categories)</li>
+                            <li><code>category_name</code></li>
+                            <li><code>created_at</code></li>
+                        </ul>
+                    </div>
+                    <div class="entity">
+                        <header>Income</header>
+                        <ul>
+                            <li><code>income_id</code> (PK)</li>
+                            <li><code>user_id</code> (FK)</li>
+                            <li><code>amount</code></li>
+                            <li><code>source</code></li>
+                            <li><code>income_date</code></li>
+                            <li><code>description</code></li>
+                        </ul>
+                    </div>
+                    <div class="entity">
+                        <header>Expenses</header>
+                        <ul>
+                            <li><code>expense_id</code> (PK)</li>
+                            <li><code>user_id</code> (FK)</li>
+                            <li><code>category_id</code> (FK)</li>
+                            <li><code>amount</code></li>
+                            <li><code>expense_date</code></li>
+                            <li><code>description</code></li>
+                            <li><code>receipt_path</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-band">
+                <div class="card">
+                    <h3>ER Relationship Explanation</h3>
+                    <div class="relation-board">
+                        <div class="relation-line">
+                            <strong>Users 1 → Many Income</strong>
+                            <span>One user can have multiple income records.</span>
+                        </div>
+                        <div class="relation-line">
+                            <strong>Users 1 → Many Expenses</strong>
+                            <span>Each expense belongs to one logged-in user.</span>
+                        </div>
+                        <div class="relation-line">
+                            <strong>Users 1 → Many Categories</strong>
+                            <span>Users can create their own categories; some default categories can have null user_id.</span>
+                        </div>
+                        <div class="relation-line">
+                            <strong>Categories 1 → Many Expenses</strong>
+                            <span>Every expense must belong to one category.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Database Notes for Viva</h3>
+                    <ul class="list">
+                        <li>Foreign keys enforce data integrity and ownership.</li>
+                        <li>DAO queries always filter by <code>user_id</code> for authorization.</li>
+                        <li>Dashboard reports use aggregate SQL like <code>SUM</code>, <code>GROUP BY</code>, and date-based filtering.</li>
+                        <li><code>receipt_path</code> stores file name, while physical file is stored in server-side upload directory.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="crud">
+            <div class="section-title">
+                <h2>7. CRUD Operations</h2>
+                <p>CRUD means Create, Read, Update, and Delete. RupeeLens supports CRUD for income, expenses, and categories, while users primarily use register and login operations.</p>
+            </div>
+
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>Create</th>
+                            <th>Read</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Income</td>
+                            <td><code>incomeDAO.addIncome()</code></td>
+                            <td><code>getIncomeByUser()</code>, <code>getIncomeById()</code></td>
+                            <td><code>updateIncome()</code></td>
+                            <td><code>deleteIncome()</code></td>
+                        </tr>
+                        <tr>
+                            <td>Expense</td>
+                            <td><code>expenseDAO.addExpense()</code></td>
+                            <td><code>getExpensesByUser()</code>, <code>getExpenseById()</code></td>
+                            <td><code>updateExpense()</code></td>
+                            <td><code>deleteExpense()</code></td>
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+                            <td><code>categoryDAO.addCategory()</code></td>
+                            <td><code>getCategoriesByUser()</code>, <code>getCategoryById()</code></td>
+                            <td><code>updateCategory()</code></td>
+                            <td><code>deleteCategory()</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Example DAO Query</h3>
+                    <div class="code-block">String sql = "INSERT INTO expenses (user_id, category_id, amount, expense_date, description, receipt_path) VALUES (?, ?, ?, ?, ?, ?)";
+
+try (Connection con = DBConnection.getConnection();
+     PreparedStatement ps = con.prepareStatement(sql)) {
+    ps.setInt(1, expense.getUserId());
+    ps.setInt(2, expense.getCategoryId());
+    ps.setBigDecimal(3, expense.getAmount());
+    ps.setDate(4, expense.getExpenseDate());
+    ps.setString(5, expense.getDescription());
+    ps.setString(6, expense.getReceiptPath());
+    return ps.executeUpdate() &gt; 0;
+}</div>
+                    <p>This query shows the Create operation for an expense. Prepared statements are used to safely bind parameters and execute SQL.</p>
+                </div>
+
+                <div class="card">
+                    <h3>How CRUD Works End to End</h3>
+                    <ul class="list">
+                        <li>User opens a form through a GET request handled by a servlet.</li>
+                        <li>User submits data using POST or action-based query parameters.</li>
+                        <li>Servlet converts request data into a model object.</li>
+                        <li>DAO executes SQL and returns success or data.</li>
+                        <li>Servlet redirects to list view or forwards back with an error message.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="ocr">
+            <div class="section-title">
+                <h2>8. OCR Feature (Very Important)</h2>
+                <p>This is the standout feature of RupeeLens. It reduces manual data entry by analyzing a receipt image and returning structured suggestions for amount, date, merchant, category, and description.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>What is OCR?</h3>
+                    <p>OCR stands for Optical Character Recognition. It converts text inside an image or scanned receipt into machine-readable text.</p>
+                    <h3>Why OCR is Used Here</h3>
+                    <ul class="list">
+                        <li>Users often have receipt photos but do not want to type everything manually.</li>
+                        <li>Expense entry becomes faster and more practical.</li>
+                        <li>The system can suggest values, but the user still verifies them before final save.</li>
+                    </ul>
+                    <div class="label-row">
+                        <span class="pill ok">Important Design Choice: OCR suggests, user confirms, then expense is saved.</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Where OCR is Implemented</h3>
+                    <ul class="list">
+                        <li><code>controller.ExpenseOCRServlet</code> for OCR request handling.</li>
+                        <li><code>controller.OcrHealthServlet</code> for OCR configuration check.</li>
+                        <li><code>addExpense.jsp</code> for receipt upload and OCR panel.</li>
+                        <li><code>js/dashboard.js</code> for fetch, preview, response display, and confirmation logic.</li>
+                        <li><code>ExpenseServlet</code> for final save with OCR confirmation check.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>OCR Flow in RupeeLens</h3>
+                <div class="flow-stack">
+                    <div class="flow-step">
+                        <div class="step-no">1</div>
+                        <div><strong>Upload receipt</strong><br>User selects a receipt image or PDF in <code>addExpense.jsp</code>.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-no">2</div>
+                        <div><strong>Click Extract Receipt Data</strong><br>JavaScript collects the file using <code>FormData</code> and sends it to <code>/expense-ocr</code> using <code>fetch()</code>.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-no">3</div>
+                        <div><strong>OCR servlet processes file</strong><br><code>ExpenseOCRServlet</code> reads image bytes, validates session, and chooses the OCR provider.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-no">4</div>
+                        <div><strong>Provider call and retry logic</strong><br>The servlet tries Google Vision if configured, otherwise OCR.Space. If quality is weak, preprocessing and a second OCR pass may run.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-no">5</div>
+                        <div><strong>Extract structured fields</strong><br>Regex and parsing logic identify amount, date, merchant, and likely category from OCR text.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-no">6</div>
+                        <div><strong>Auto-fill form</strong><br>Frontend fills amount, date, category, description, and shows raw text plus confidence information.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-no">7</div>
+                        <div><strong>User confirms</strong><br>The user checks the confirmation box. Hidden field <code>ocrConfirmed</code> becomes true.</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-no">8</div>
+                        <div><strong>Expense save allowed</strong><br><code>ExpenseServlet</code> blocks save if OCR was used but not confirmed.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-band">
+                <div class="card">
+                    <h3>OCR Backend Handling</h3>
+                    <ul class="list">
+                        <li>The OCR endpoint is mapped as <code>/expense-ocr</code> and uses <code>@MultipartConfig</code>.</li>
+                        <li>Response type is JSON, not HTML, because frontend expects structured data.</li>
+                        <li>The servlet returns fields like <code>success</code>, <code>amount</code>, <code>date</code>, <code>categoryName</code>, <code>merchant</code>, <code>description</code>, <code>rawText</code>, <code>confidence</code>, and <code>provider</code>.</li>
+                        <li>Fallback suggestions are generated if text is weak or partially unreadable.</li>
+                        <li>OCR reliability is improved through timeout handling, second-pass preprocessing, and safe JSON output.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Benefits of the OCR Module</h3>
+                    <ul class="list">
+                        <li>Reduces typing effort while adding expenses.</li>
+                        <li>Makes the project more innovative than a normal CRUD system.</li>
+                        <li>Shows integration of external APIs with Java Servlet architecture.</li>
+                        <li>Improves viva value because it combines file upload, JSON response, parsing logic, and user-controlled automation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>OCR Code Example</h3>
+                <div class="code-block">Part receipt = req.getPart("receipt");
+if (receipt == null || receipt.getSize() == 0) {
+    writeJson(resp, false, "Please upload a receipt image first.");
+    return;
+}
+
+OcrApiResult primary = callBestOcrProvider(imageBytes, submittedName, false);
+if (shouldRetryWithPreprocessing(primary)) {
+    byte[] preprocessed = preprocessImage(imageBytes);
+    OcrApiResult second = callBestOcrProvider(preprocessed, submittedName, true);
+}
+
+OcrData data = extractData(bestResult.text, categoryDAO.getCategoriesByUser(userId));
+writeOcrPayload(resp, data, fallback, note, confidence, bestResult.provider, bestResult.errorMessage);</div>
+                <p>This code shows the main OCR sequence: read multipart file, call OCR provider, optionally retry using a preprocessed image, extract structured values, and send JSON back to the browser.</p>
+            </div>
+        </section>
+
+        <section id="security">
+            <div class="section-title">
+                <h2>9. Security and Best Practices</h2>
+                <p>This section should be explained honestly in viva. It includes what is already implemented and what can be improved further.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Implemented Practices</h3>
+                    <ul class="list">
+                        <li>Password is <strong>not</strong> stored in cookies. Only remembered email and last login timestamp are stored.</li>
+                        <li>Protected servlets verify the session before allowing access.</li>
+                        <li>DAO methods use <code>PreparedStatement</code>, which helps prevent SQL injection.</li>
+                        <li>Expense and category operations are filtered by <code>user_id</code>, which supports authorization at the query level.</li>
+                        <li>URL encoding methods are used for redirects.</li>
+                        <li>File upload size is limited through <code>@MultipartConfig</code>.</li>
+                        <li>OCR does not auto-save financial records without user confirmation.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Important Viva Clarification</h3>
+                    <ul class="list">
+                        <li>The current project stores passwords in the database as plain values and checks them directly in <code>UserDAO</code>.</li>
+                        <li>This is acceptable for explaining the present implementation, but in production the system should use password hashing such as BCrypt.</li>
+                        <li>Cookie values are marked <code>HttpOnly</code> in login logic.</li>
+                        <li>Additional improvements for future scope can include CSRF protection, stronger file-type validation, and secure password storage.</li>
+                    </ul>
+                    <div class="label-row">
+                        <span class="pill ok">Implemented: session check, cookies without password, prepared statements</span>
+                        <span class="pill warn">Improvement Suggested: password hashing and stricter upload validation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="section-title">
+                <h2>10. Team Presentation Flow</h2>
+                <p>This section divides the faculty presentation into five members so that every speaker has a clear role, demo focus, speaking line, and code reference.</p>
+            </div>
+
+            <div class="member-grid">
+                <div class="member-card">
+                    <h3>Member 1: Introduction + UI Overview</h3>
+                    <div class="member-block">
+                        <strong>What they say</strong>
+                        RupeeLens is a web-based money tracking system that lets users register, log in, manage income and expenses, organize categories, upload receipts, and view reports with charts.
+                    </div>
+                    <div class="member-block">
+                        <strong>What they demonstrate</strong>
+                        Open login page, register/login flow, dashboard page, sidebar, navbar, and overall navigation between modules.
+                    </div>
+                    <div class="member-block">
+                        <strong>Key lines to speak</strong>
+                        “Our project solves the real problem of manual money tracking.” “The user interface is built with JSP, Bootstrap, and JavaScript.” “Every main module is accessible from the sidebar.”
+                    </div>
+                    <div class="member-block">
+                        <strong>Code references</strong>
+                        <code>login.jsp</code>, <code>register.jsp</code>, <code>dashboard.jsp</code>, <code>components/sidebar.jsp</code>, <code>components/navbar.jsp</code>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3>Member 2: Client-Side Logic</h3>
+                    <div class="member-block">
+                        <strong>What they say</strong>
+                        The client side uses Bootstrap for layout and JavaScript for interaction such as chart drawing, receipt preview, table search, OCR fetch calls, and confirmation-based validation.
+                    </div>
+                    <div class="member-block">
+                        <strong>What they demonstrate</strong>
+                        Show the add expense form, select a receipt, display receipt preview, click OCR button, and explain hidden fields and browser-side validation.
+                    </div>
+                    <div class="member-block">
+                        <strong>Key lines to speak</strong>
+                        “Frontend logic is not only visual; it also controls form behavior.” “We use FileReader for preview and fetch for OCR.” “If OCR is used but not confirmed, JavaScript blocks form submission.”
+                    </div>
+                    <div class="member-block">
+                        <strong>Code references</strong>
+                        <code>addExpense.jsp</code>, <code>addIncome.jsp</code>, <code>addCategory.jsp</code>, <code>js/dashboard.js</code>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3>Member 3: MVC + JSP + Core Backend</h3>
+                    <div class="member-block">
+                        <strong>What they say</strong>
+                        The project follows MVC-oriented layering where JSP is the view, Servlets are controllers, model classes hold data, and DAO classes execute SQL using JDBC.
+                    </div>
+                    <div class="member-block">
+                        <strong>What they demonstrate</strong>
+                        Explain a full request cycle such as login or add income: browser request, servlet processing, DAO query, database operation, and JSP response.
+                    </div>
+                    <div class="member-block">
+                        <strong>Key lines to speak</strong>
+                        “Servlets handle the business flow.” “DAOs separate SQL from UI logic.” “This layering makes the project easier to explain and maintain.”
+                    </div>
+                    <div class="member-block">
+                        <strong>Code references</strong>
+                        <code>LoginServlet.java</code>, <code>IncomeServlet.java</code>, <code>UserDAO.java</code>, <code>IncomeDAO.java</code>, <code>model/*.java</code>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3>Member 4: Server-Side Features</h3>
+                    <div class="member-block">
+                        <strong>What they say</strong>
+                        Server-side logic includes session management, cookies, file upload, authorization checks, exception handling, URL rewriting, and the OCR integration servlet.
+                    </div>
+                    <div class="member-block">
+                        <strong>What they demonstrate</strong>
+                        Explain login session creation, cookie storage, logout, receipt upload, OCR endpoint flow, and error handling pages.
+                    </div>
+                    <div class="member-block">
+                        <strong>Key lines to speak</strong>
+                        “We store only email and last login in cookies, not password.” “Receipt upload uses MultipartConfig.” “OCR returns JSON and requires confirmation before save.”
+                    </div>
+                    <div class="member-block">
+                        <strong>Code references</strong>
+                        <code>LoginServlet.java</code>, <code>LogoutServlet.java</code>, <code>ExpenseServlet.java</code>, <code>ExpenseOCRServlet.java</code>, <code>web.xml</code>, <code>AppContextListener.java</code>
+                    </div>
+                </div>
+
+                <div class="member-card" style="grid-column: 1 / -1;">
+                    <h3>Member 5: Database + CRUD + Final Flow</h3>
+                    <div class="member-block">
+                        <strong>What they say</strong>
+                        The database is relational and normalized around user ownership. CRUD is implemented through DAO classes, and dashboard/report logic is built using aggregate SQL.
+                    </div>
+                    <div class="member-block">
+                        <strong>What they demonstrate</strong>
+                        Show the four main tables, explain relationships, then demonstrate adding, editing, listing, and deleting records in the application.
+                    </div>
+                    <div class="member-block">
+                        <strong>Key lines to speak</strong>
+                        “Every transaction is connected to a user.” “Prepared statements are used for SQL execution.” “Dashboard charts and reports come from grouped SQL results.” “JSF and Hibernate are not implemented; they are future enhancement topics only.”
+                    </div>
+                    <div class="member-block">
+                        <strong>Code references</strong>
+                        <code>README.md</code> schema section, <code>DBConnection.java</code>, <code>CategoryDAO.java</code>, <code>ExpenseDAO.java</code>, <code>DashboardDAO.java</code>, <code>dashboard.jsp</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="snippets">
+            <div class="section-title">
+                <h2>11. Code Snippets for Viva</h2>
+                <p>These snippets are useful for quick explanation during faculty questions. Each one is taken from the project structure and reflects actual implementation style.</p>
+            </div>
+
+            <div class="card">
+                <div class="snippet">
+                    <h3>LoginServlet Snippet</h3>
+                    <div class="code-block">User user = userDAO.login(email, password);
+
+if (user != null) {
+    HttpSession session = req.getSession();
+    session.setAttribute("loggedUser", user);
+    session.setMaxInactiveInterval(30 * 60);
+    resp.sendRedirect(resp.encodeRedirectURL(req.getContextPath() + "/dashboard.jsp"));
+} else {
+    req.setAttribute("error", "Invalid email or password.");
+    req.getRequestDispatcher("login.jsp").forward(req, resp);
+}</div>
+                    <p>This snippet shows authentication flow. On valid login, the servlet creates a session and redirects to the dashboard; otherwise it forwards back to the login page with an error message.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>Cookie Handling Snippet</h3>
+                    <div class="code-block">Cookie rememberCookie = new Cookie("rupeelens_remember_email", user.getEmail());
+rememberCookie.setHttpOnly(true);
+rememberCookie.setMaxAge(THIRTY_DAYS);
+rememberCookie.setPath(req.getContextPath());
+resp.addCookie(rememberCookie);
+
+Cookie lastLoginCookie = new Cookie("rupeelens_last_login", now);
+lastLoginCookie.setHttpOnly(true);
+resp.addCookie(lastLoginCookie);</div>
+                    <p>This code demonstrates safe cookie usage in the project. The app stores only remembered email and last login timestamp, which supports the viva point that passwords are never stored in cookies.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>Session Creation and Authorization Check</h3>
+                    <div class="code-block">HttpSession session = req.getSession(false);
+if (session == null || session.getAttribute("loggedUser") == null) {
+    resp.sendRedirect(resp.encodeRedirectURL(req.getContextPath() + "/login"));
+    return null;
+}
+User user = (User) session.getAttribute("loggedUser");
+return user.getUserId();</div>
+                    <p>This pattern appears in protected servlets. It ensures that only authenticated users can access income, expense, category, and OCR endpoints.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>DAO Method Example</h3>
+                    <div class="code-block">public List&lt;Expense&gt; getExpensesByUser(int userId) {
+    String sql = "SELECT e.expense_id, e.user_id, e.category_id, c.category_name, e.amount, e.expense_date, e.description, e.receipt_path " +
+                 "FROM expenses e JOIN categories c ON e.category_id = c.category_id " +
+                 "WHERE e.user_id = ? ORDER BY e.expense_date DESC, e.expense_id DESC";
+}</div>
+                    <p>This query shows read operation with join logic. It combines expense data with category name and ensures that only the current user’s records are returned.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>File Upload Snippet</h3>
+                    <div class="code-block">@WebServlet("/expense")
+@MultipartConfig(maxFileSize = 5 * 1024 * 1024, maxRequestSize = 10 * 1024 * 1024)
+
+Part receiptPart = req.getPart("receipt");
+if (receiptPart != null &amp;&amp; receiptPart.getSize() &gt; 0) {
+    String originalFileName = Paths.get(receiptPart.getSubmittedFileName()).getFileName().toString();
+    String fileName = UUID.randomUUID() + "_" + originalFileName.replaceAll("[^a-zA-Z0-9._-]", "_");
+    receiptPart.write(filePath);
+}</div>
+                    <p>This code shows multipart file handling. The uploaded receipt is renamed safely, stored in a dedicated upload directory, and only the file path is saved in the database.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>OCR Handling Snippet</h3>
+                    <div class="code-block">fetch(expenseOcrUrl, {
+    method: "POST",
+    body: formData
+})
+.then(function (response) { return response.text(); })
+.then(function (raw) { return JSON.parse(raw); });
+
+if (ocrUsed &amp;&amp; !ocrConfirmed) {
+    event.preventDefault();
+    showOcrStatus("Please confirm extracted details before saving the expense.", "warning");
+}</div>
+                    <p>This snippet represents the browser-side OCR request and final validation. The file is sent asynchronously to the OCR servlet, and the expense form cannot be submitted until the user confirms the extracted information.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>RegisterServlet Snippet</h3>
+                    <div class="code-block">if (name == null || name.trim().isEmpty() ||
+    email == null || email.trim().isEmpty() ||
+    password == null || password.trim().isEmpty()) {
+    req.setAttribute("error", "All fields are required.");
+    req.getRequestDispatcher("register.jsp").forward(req, resp);
+    return;
+}
+
+if (userDAO.emailExists(email.trim())) {
+    req.setAttribute("error", "Email already exists. Please login.");
+    req.getRequestDispatcher("register.jsp").forward(req, resp);
+    return;
+}
+
+boolean inserted = userDAO.register(user);</div>
+                    <p>This code handles user registration by checking required fields and duplicate email before inserting a new user into the database. It is useful to explain server-side validation.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>LogoutServlet Snippet</h3>
+                    <div class="code-block">HttpSession session = req.getSession(false);
+if (session != null) {
+    session.invalidate();
+}
+
+if ("1".equals(req.getParameter("forget"))) {
+    Cookie rememberCookie = new Cookie("rupeelens_remember_email", "");
+    rememberCookie.setMaxAge(0);
+    rememberCookie.setPath(req.getContextPath());
+    resp.addCookie(rememberCookie);
+}
+
+resp.sendRedirect(resp.encodeRedirectURL(req.getContextPath() + "/login"));</div>
+                    <p>This snippet shows clean logout behavior. It destroys the active session and optionally clears the remembered email cookie.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>IncomeServlet Snippet</h3>
+                    <div class="code-block">String formAction = req.getParameter("formAction");
+String source = req.getParameter("source");
+String amount = req.getParameter("amount");
+String date = req.getParameter("incomeDate");
+
+Income income = new Income();
+income.setUserId(userId);
+income.setSource(source != null ? source.trim() : null);
+income.setAmount(new BigDecimal(amount));
+income.setIncomeDate(Date.valueOf(date));
+
+boolean ok = "update".equalsIgnoreCase(formAction)
+    ? incomeDAO.updateIncome(income)
+    : incomeDAO.addIncome(income);</div>
+                    <p>This code shows how income form data is converted into a model object and then routed to either create or update logic based on the hidden form action.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>ExpenseServlet OCR Confirmation Snippet</h3>
+                    <div class="code-block">String ocrUsed = req.getParameter("ocrUsed");
+String ocrConfirmed = req.getParameter("ocrConfirmed");
+
+if ("true".equalsIgnoreCase(ocrUsed) &amp;&amp;
+    !"true".equalsIgnoreCase(ocrConfirmed)) {
+    req.setAttribute("error", "Please confirm OCR extracted details before saving.");
+    req.setAttribute("categoryList", categoryDAO.getCategoriesByUser(userId));
+    req.getRequestDispatcher("addExpense.jsp").forward(req, resp);
+    return;
+}</div>
+                    <p>This is an important project-specific safeguard. It proves that OCR is only an assistant feature and that the final decision to save still belongs to the user.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>CategoryDAO Snippet</h3>
+                    <div class="code-block">String sql = "SELECT category_id, user_id, category_name " +
+             "FROM categories WHERE user_id = ? OR user_id IS NULL ORDER BY category_name";
+
+PreparedStatement ps = con.prepareStatement(sql);
+ps.setInt(1, userId);
+ResultSet rs = ps.executeQuery();</div>
+                    <p>This snippet explains how the project supports both user-specific categories and default categories. The <code>user_id IS NULL</code> condition is useful to mention in viva.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>DashboardDAO Aggregation Snippet</h3>
+                    <div class="code-block">public BigDecimal getTotalIncome(int userId) {
+    String sql = "SELECT COALESCE(SUM(amount), 0) AS total FROM income WHERE user_id = ?";
+    return getSingleAmount(sql, userId);
+}
+
+public BigDecimal getBalance(int userId) {
+    return getTotalIncome(userId).subtract(getTotalExpense(userId));
+}</div>
+                    <p>This snippet shows how dashboard cards are calculated. It is a simple but strong example of backend reporting logic using SQL aggregation.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>DBConnection Snippet</h3>
+                    <div class="code-block">private static final String URL =
+    "jdbc:mysql://localhost:3306/RupeeLens?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC";
+private static final String USER = "root";
+private static final String PASSWORD = "lalitvishakha24";
+
+static {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+}
+
+public static Connection getConnection() throws SQLException {
+    return DriverManager.getConnection(URL, USER, PASSWORD);
+}</div>
+                    <p>This code is the central database connection utility. It loads the MySQL JDBC driver once and provides connections to all DAO classes.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>web.xml Snippet</h3>
+                    <div class="code-block">&lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;login&lt;/welcome-file&gt;
+&lt;/welcome-file-list&gt;
+
+&lt;session-config&gt;
+    &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+
+&lt;error-page&gt;
+    &lt;error-code&gt;404&lt;/error-code&gt;
+    &lt;location&gt;/error404.jsp&lt;/location&gt;
+&lt;/error-page&gt;</div>
+                    <p>This deployment descriptor snippet is useful for explaining application entry point, global session timeout, and custom error-page configuration.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>addExpense.jsp Hidden Fields Snippet</h3>
+                    <div class="code-block">&lt;input type="hidden" name="formAction" value="create"&gt;
+&lt;input type="hidden" name="ocrUsed" id="ocrUsed" value="false"&gt;
+&lt;input type="hidden" name="ocrConfirmed" id="ocrConfirmed" value="false"&gt;
+
+&lt;div class="form-check mt-2"&gt;
+    &lt;input class="form-check-input" type="checkbox" id="confirmOcrCheckbox"&gt;
+    &lt;label class="form-check-label" for="confirmOcrCheckbox"&gt;
+        I confirm the extracted details are correct and ready to save.
+    &lt;/label&gt;
+&lt;/div&gt;</div>
+                    <p>This snippet explains the connection between frontend state and backend validation. Hidden fields track whether OCR was used and whether the user has approved the extracted values.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>ExpenseOCRServlet Provider Strategy Snippet</h3>
+                    <div class="code-block">private OcrApiResult callBestOcrProvider(byte[] imageBytes, String originalName, boolean aggressive) {
+    String googleKey = System.getenv("GOOGLE_VISION_API_KEY");
+    if (!isBlank(googleKey)) {
+        OcrApiResult google = callGoogleVisionApi(imageBytes, googleKey.trim());
+        google.provider = "google_vision";
+        if (!google.error &amp;&amp; !isBlank(google.text)) {
+            return google;
+        }
+    }
+    OcrApiResult ocrSpace = callOcrApi(imageBytes, originalName, aggressive);
+    ocrSpace.provider = "ocr_space";
+    return ocrSpace;
+}</div>
+                    <p>This code is important because it shows fallback strategy between OCR providers. It demonstrates resilience and real-world API integration thinking.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>OcrHealthServlet Snippet</h3>
+                    <div class="code-block">String ocrSpace = System.getenv("OCR_SPACE_API_KEY");
+String google = System.getenv("GOOGLE_VISION_API_KEY");
+
+boolean hasOcrSpace = ocrSpace != null &amp;&amp; !ocrSpace.trim().isEmpty();
+boolean hasGoogle = google != null &amp;&amp; !google.trim().isEmpty();
+String activeProvider = hasGoogle ? "google_vision" : "ocr_space";</div>
+                    <p>This snippet helps explain operational support for OCR. The health endpoint checks which OCR key is present and which provider is currently active.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>ReceiptServlet Snippet</h3>
+                    <div class="code-block">String safeFileName = Paths.get(fileParam).getFileName().toString();
+Path filePath = Paths.get(RECEIPT_STORAGE_DIR, safeFileName);
+
+if (!Files.exists(filePath) || !Files.isRegularFile(filePath)) {
+    resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+    return;
+}
+
+resp.setHeader("Content-Disposition", "inline; filename=\\"" + safeFileName + "\\"");
+Files.copy(filePath, resp.getOutputStream());</div>
+                    <p>This code shows how saved receipt files are served back safely. It prevents path traversal by extracting only the file name and then reading from the known uploads directory.</p>
+                </div>
+
+                <div class="snippet">
+                    <h3>AppContextListener Snippet</h3>
+                    <div class="code-block">Enumeration&lt;Driver&gt; drivers = DriverManager.getDrivers();
+while (drivers.hasMoreElements()) {
+    Driver driver = drivers.nextElement();
+    if (driver.getClass().getClassLoader() == webAppClassLoader) {
+        DriverManager.deregisterDriver(driver);
+    }
+}
+
+AbandonedConnectionCleanupThread.checkedShutdown();</div>
+                    <p>This snippet is useful for advanced viva questions. It shows resource cleanup during application shutdown and prevents JDBC driver memory leak issues on Tomcat redeploy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="summary">
+            <div class="section-title">
+                <h2>12. Final Implementation Summary</h2>
+                <p>This summary is the final closing statement for presentation and viva.</p>
+            </div>
+
+            <div class="card">
+                <div class="label-row">
+                    <span class="pill ok">Implemented: Servlet, JSP, JDBC, MySQL, MVC structure</span>
+                    <span class="pill ok">Implemented: Authentication, session handling, cookies, CRUD, reports, dashboard</span>
+                    <span class="pill ok">Implemented: Receipt upload and OCR-based expense prefill</span>
+                    <span class="pill no">Not Implemented: JSF and Hibernate</span>
+                    <span class="pill warn">Future Scope: JSF, Hibernate, password hashing, stronger production security</span>
+                </div>
+                <p><strong>Final Statement:</strong> RupeeLens is a complete Java web project that demonstrates frontend and backend integration, MVC-based design, JDBC-based data persistence, secure session-controlled access, chart-based reporting, file upload handling, and an advanced OCR module for receipt understanding. It is suitable for faculty presentation because it covers both foundational concepts and advanced features in one coherent application.</p>
+            </div>
+        </section>
+
+        <div class="footer-note">
+            Prepared for faculty presentation and viva discussion of the RupeeLens Java Web Project.
+        </div>
+    </div>
+</body>
+</html>
